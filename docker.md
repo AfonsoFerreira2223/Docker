@@ -8,16 +8,16 @@ Docker uses containers- These are isolated environments to run an application.
 
 Containers work similarly to VMs. They are lightweight software packages that encapsulate an application and dependencies, so they it can run consistently across different computing environments. They are lightweight, fast, and can be pushed to docker hub for instant access on any machine.
 
-Think of a virtual machine and a container like boxes. The VM is a big box, it can store loads of information but it also heavy and takes lots of space. Containers are small boxes, made for specific items, whihc makes them easier to find and store, or bring them with you anywhere.
+Think of a virtual machine and a container-like boxes. The VM is a big box, it can store loads of information but it is also heavy and takes up lots of space. Containers are small boxes, made for specific items, whihc makes them easier to find and store, or bring them with you anywhere.
 
 Containers are treated like any other process running on your computer. 
 
-They can be runned using an image.
+They can be run using an image.
 
 They use the same Kernel as the host system, unlike Vms, they don’t run on their own OS.
 
 
-Docker may be preferable to a VM as the latter requires more resources, is slower to start and needs a full blown OS.
+Docker may be preferable to a VM as the latter requires more resources, is slower to start, and needs a full-blown OS.
 
 
 # Installing docker on ubuntu:
@@ -36,13 +36,44 @@ apt-cache policy docker-ce
 sudo apt install docker-ce
 ```
 
-If you now run sudo ```systemctl status docker``` it should show an output simmilar to this:
+
+# Create and push your own images
+
+First of all make sure to create an account on dockerhub:
+
+`
+https://hub.docker.com
+`
+
+**Make sure to note down your password and username**
+
+Now to log in to dockerhub from your machine issue the command:
+
+`
+docker login -u *your username*
+`
+
+No enter the password as prompted
+
+
+If the login was successful, you should now have access to your repositories
+
+To push an image to dockerhub run:
+
+    docker push *username/name of image*
+
+And pull with:
+
+    docker pull *username/name of image*
+    
+
+If you now run sudo ```systemctl status docker``` it should show an output similar to this:
 
 ![image](https://github.com/AfonsoFerreira2223/Docker/assets/114146560/8bf021fe-1655-4e7b-aa86-2a1184e5e0f9)
 
 
 
-**Instaling docker gives you the docker daimon (server) and the command line uttility (client)**
+**Instaling docker gives you the docker daemon (server) and the command line uttility (client)**
 
 
 The Docker daemon is the background service that manages Docker containers and other Docker components, while the Docker client is the command-line utility that allows you to manage Docker containers.
@@ -88,7 +119,7 @@ You can pull images from docker hub
 docker pull ubuntu
 ```
 
-This will get you an image from a basic ubuntu cli avaible on  docker hub.
+This will get you an image from a basic ubuntu cli available on  docker hub.
 
 You can run ```docker images``` to see the images stored on your computer
 
